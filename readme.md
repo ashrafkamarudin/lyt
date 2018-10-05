@@ -12,9 +12,11 @@ Custom Simple PHP Web Framework by Ashraf Kamarudin complete with Authentication
 
 ### Prerequisites
 
-PHP
-APACHE
-MYSQL
+* PHP
+* APACHE
+* MYSQL
+
+or any XAMPP, LAMPP, WAMPP stacks.
 
 
 ## Built With
