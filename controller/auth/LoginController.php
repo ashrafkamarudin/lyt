@@ -3,8 +3,9 @@
 /**
 * 
 */
-class LoginController extends AuthLogin
+class LoginController extends Controller
 {
+	use Authenticate;
 	
 	function __construct() {
 		parent::__construct();

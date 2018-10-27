@@ -7,16 +7,14 @@ require 'libs/router.php';
 require 'libs/Controller.php';
 require 'libs/View.php';
 require 'libs/Model.php';
-require 'libs/Session.php';
 
 //Library
 require 'libs/Database.php';
-require 'libs/Flash.php';
+require 'libs/Session.php';
 
 //auth
 require 'libs/Auth/Auth.php';
-require 'libs/Auth/AuthLogin.php';
-require 'libs/Auth/AuthRegister.php';
+require 'libs/Auth/Authenticate.php';
 require 'model/User.php';
 
 require'config.php';

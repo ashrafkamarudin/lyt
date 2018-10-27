@@ -18,8 +18,10 @@ class Session
                echo "<div>";
             }
 
-            foreach ($_SESSION['messages'] as $message) {
-                echo $message . "<br>";
+            foreach (array_values($_SESSION['messages']) as $messages) {
+                foreach ($messages as $key => $value) {
+                    echo $value . "<br>";
+                }
             }
             echo "</div>";
 

@@ -5,8 +5,7 @@
 */
 class RegisterController extends Controller
 {
-
-	private $errors = array();
+	use Authenticate;
 	
 	function __construct() {
 		parent::__construct();

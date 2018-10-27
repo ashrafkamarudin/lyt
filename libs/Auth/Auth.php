@@ -3,7 +3,7 @@
 /**
 * 
 */
-class Auth extends Model
+trait Auth
 {
 
 	// return boolean true if username is valid format
