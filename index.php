@@ -7,19 +7,22 @@ require 'libs/router.php';
 require 'libs/Controller.php';
 require 'libs/View.php';
 require 'libs/Model.php';
+require 'libs/Session.php';
 
 //Library
 require 'libs/Database.php';
 require 'libs/Flash.php';
-require 'libs/Test.php';
 
 //auth
+require 'libs/Auth/Auth.php';
+require 'libs/Auth/AuthLogin.php';
+require 'libs/Auth/AuthRegister.php';
 require 'model/User.php';
 
 require'config.php';
 
 //Testing
-require 'test/ConsoleWrite.php';
+require 'libs/Test.php';
 
 $app = new Route();
 

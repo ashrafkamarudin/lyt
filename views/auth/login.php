@@ -1,6 +1,6 @@
 <div class="signup-form">
 
-    <?php Flash::Show() ?>
+    <?php Session::Flash() ?>
 
     <form action="<?php echo URL;?>login/doLogin" method="post">
         <h2>Sign In</h2>

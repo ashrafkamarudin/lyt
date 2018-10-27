@@ -80,11 +80,9 @@ class Route {
 		} else {
 			if (isset($this->method[1])) {
 				if (method_exists($controller, $this->method[1])) {
-					console_write('method 1 : ' . $this->method[1]);
 					$controller->{$this->method[1]}();
 				} else {
 					$this->error();
-					console_write('method 1 : ' . $this->method[1]);
 				}
 			} else {
 				$controller->index();

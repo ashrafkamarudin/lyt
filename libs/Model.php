@@ -2,9 +2,14 @@
 
 class Model {
 
-    function __construct() {
-        $this->db = new Database();
-    }
+	protected $table;
+	protected $id; // user id
+	protected $fields = [
+		'firstname' => '',
+		'lastname' => '',
+		'email' => '',
+		'password' => ''
+	];
 
     public function __set($field, $value)
 	{
