@@ -1,6 +1,8 @@
 
 <div class="signup-form">
-    <?php Flash::Show() ?>
+
+    <?php Session::Flash() ?>
+    
     <form action="<?php echo URL;?>register/register" method="post">
         <h2>Register</h2>
         <p class="hint-text">Create your account. It's free and only takes a minute.</p>
