@@ -3,17 +3,22 @@
 /**
 * 
 */
-class User extends Controller
+class User extends Model
 {
-	use Auth;
+	use Auth, stORM;
 
-	protected $table = 'users';
+	protected static $table = 'users';
 	protected $id; // user id
 	protected $fields = [
 		'firstname' => '',
 		'lastname' => '',
 		'email' => '',
-		'password' => ''
+		'password' => '',
+		'list' => ''
 	];
 	
+	public function liste()
+	{
+		return $this->has('model/listi');
+	}
 }

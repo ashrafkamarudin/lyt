@@ -17,12 +17,11 @@ class DB
 	}
 
 	/**
-	* update() function [CUSTOM]
 	* for custom query [e.g JOIN]
 	* @param string $sql
 	* @param string $args
 	*/
-	public static function Query($sql, $args = NULL)
+	public static function Run($sql, $args = NULL)
     {
         if (!$args)
         {

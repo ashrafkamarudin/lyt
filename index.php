@@ -10,6 +10,7 @@ require 'libs/Model.php';
 
 //Library
 require 'libs/Database.php';
+require 'libs/stORM.php';
 require 'libs/Session.php';
 
 //auth

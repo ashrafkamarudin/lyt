@@ -41,9 +41,9 @@ trait Auth
 	{
 		$user = new User();
 
-		$query = 'SELECT * FROM users WHERE name = :username';
+		$query = 'SELECT * FROM users WHERE name = :username LIMIT 1';
 
-		$field = DB::Query($query, [':username' => $username])->fetch();
+		$field = DB::Run($query, [':username' => $username])->fetch();
 
 		if ($field) {
 			$user->firstname = $field['firstname'];
@@ -59,9 +59,9 @@ trait Auth
 	{
 		$user = new User();
 
-		$query = 'SELECT * FROM users WHERE email = :email';
+		$query = 'SELECT * FROM users WHERE email = :email LIMIT 1';
 
-		$field = DB::Query($query, [':email' => $email])->fetch();
+		$field = DB::Run($query, [':email' => $email])->fetch();
 
 		if ($field) {
 			$user->firstname = $field['firstname'];
