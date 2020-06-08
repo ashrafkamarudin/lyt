@@ -5,10 +5,9 @@
 */
 class Flash
 {
-	
 	// to display messages function with bootstrap
-    public static function Show($value='') {
-
+    public static function Show($value='') 
+    {
         if (isset($_SESSION['alert']) && isset($_SESSION['messages'])) {
             if ($_SESSION['alert'] == 'success') {
                 echo "<div class='alert alert-success'>";
@@ -30,8 +29,8 @@ class Flash
 
     // to set messages
     // messages must be in array
-    public static function Set($messages, $alert) {
-
+    public static function Set($messages, $alert) 
+    {
         $_SESSION['messages'] = $messages;
         $_SESSION['alert'] = $alert;
     }

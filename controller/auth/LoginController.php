@@ -8,16 +8,17 @@ class LoginController extends Controller
 	private $errors = array();
 	private $messages = array();
 	
-	function __construct() {
+	function __construct() 
+	{
 		parent::__construct();
 	}
 
-	public function index($value='')
+	public function index($value='') 
 	{
 		$this->view->render('login', 'authLayout'); // loads view with indexLayout
 	}
 
-	public function doLogin($value='')
+	public function doLogin($value='') 
 	{
 		extract($_POST);
 		$user = User::getByEmail($email); // find the user account
@@ -61,7 +62,7 @@ class LoginController extends Controller
 		$this->redirect(URL . $redirect); // redirect
 	}
 
-	public function doLogout($value='')
+	public function doLogout($value='') 
 	{
 		// delete the session of the user
         $_SESSION = array();

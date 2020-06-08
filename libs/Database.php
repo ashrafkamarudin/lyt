@@ -21,8 +21,7 @@ class Database
 	* @param string $table
 	*/
     public function create($data, $table)
-    {
-    	
+    {	
     	$columns = implode(", ",array_keys($data));
 		$values  = array_values($data);
 		$qs      = str_repeat("?,",count($values)-1);
@@ -51,7 +50,6 @@ class Database
 	*/
 	public function read($data,$table)
 	{
-
 		if (array_key_exists("where", $data)) {
 			$column = array_slice($data, -1);
 			$where = array_pop($data);
@@ -88,20 +86,19 @@ class Database
 	public function getById($id, $table)
 	{
 		if (strpos($id, '=') == false) {
-			    $stmt = $this->pdo->prepare("SELECT * FROM $table WHERE id=:id");
-				$stmt->bindparam(":id", $id);
-			} else {
-				$pieces = explode("=", $id);
-				$stmt = $this->pdo->prepare("SELECT * FROM $table WHERE $pieces[0]=:id");
-				$stmt->bindparam(":id", $pieces[1]);
-			}
+			$stmt = $this->pdo->prepare("SELECT * FROM $table WHERE id=:id");
+			$stmt->bindparam(":id", $id);
+		} else {
+			$pieces = explode("=", $id);
+			$stmt = $this->pdo->prepare("SELECT * FROM $table WHERE $pieces[0]=:id");
+			$stmt->bindparam(":id", $pieces[1]);
+		}
 
-		//$stmt = $this->pdo->prepare("SELECT * FROM $table WHERE id=:id");
-		//$stmt = $this->pdo->prepare($query);
 		if ($stmt->execute()) {
 			$data=$stmt->fetch(PDO::FETCH_ASSOC);
 			return $data;
 		};
+
 		return false;
 	}
 
@@ -161,9 +158,7 @@ class Database
 	*/
 	public function delete($id, $table)
 	{
-
 		try {
-
 			if (strpos($id, '=') == false) {
 			    $stmt = $this->pdo->prepare("DELETE FROM $table WHERE id=:id");
 				$stmt->bindparam(":id", $id);
@@ -179,6 +174,7 @@ class Database
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}
+
 		return false;
 	}
 
@@ -190,16 +186,16 @@ class Database
 	*/
 	public function run($sql, $args = NULL)
     {
-        if (!$args)
-        {
+        if (!$args) {
             return $this->pdo->query($sql);
-        }
+		}
+		
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($args);
         return $stmt;
     }
 
-    public function lastInsertId(){
+    public function lastInsertId() {
         return $this->pdo->lastInsertId();
     }
 }

@@ -2,9 +2,6 @@
 
 class View {
 
-    function __construct() {
-    }
-
     public function render($name, $layout = NULL)
     {
         if ($layout != NULL) {

@@ -2,17 +2,16 @@
 
 class Model {
 
-    function __construct() {
+	function __construct()
+	{
         $this->db = new Database();
     }
 
-    public function __set($field, $value)
+	public function __set($field, $value)
 	{
 		if (array_key_exists($field, $this->fields)) {
 			$this->fields[$field] = $value;
 		}
-
-		// array_key_exists(key, array)
 	}
 
 	// override magic method to retrieve properties
@@ -29,8 +28,6 @@ class Model {
 	{
 		$db = DB::connect();
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        echo $thisClass = get_called_class();
 
 		$query = "SELECT * FROM users";
 
@@ -73,8 +70,6 @@ class Model {
 			$Model = new $thisClass;
 
 			$Model->id = $id;
-
-			var_dump($model);
 
 			foreach ($data as $field => $value) {
 				if (array_key_exists($field, $Model->fields)) {

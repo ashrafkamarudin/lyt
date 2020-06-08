@@ -6,8 +6,8 @@ class Route {
 	private $controller;
 	private $method;
 
-    function __construct() {
-        
+	function __construct()
+	{
         $url = isset($_GET['url']) ? $_GET['url'] : null;
         $url = rtrim($url, '/');
         $url = explode('/', $url);
@@ -19,17 +19,12 @@ class Route {
 
 	public function redirect($controller, $function = NULL)
 	{	
-
 		if (!isset($this->controller)) {
-
 			$this->controller = $controller['controller'];
-
 			$file = 'controller/' . $controller['path'] . '.php';
 
 		    if(file_exists($file)){
 		        require $file;
-		    }else{
-		        //$error();
 		    }
 		}
 
@@ -40,11 +35,8 @@ class Route {
 
 	public function get($uri, $controller, $function = NULL)
 	{	
-
 		if ($this->url === $uri) {
-
 			$this->controller = $controller['controller'];
-
 			$file = 'controller/' . $controller['path'] . '.php';
 
 		    if(file_exists($file)){
@@ -74,7 +66,6 @@ class Route {
 				$controller->{$this->method[1]}($this->method[2]);
 			} else {
 				$this->error();
-
 				console_write('method 2 : ' . $this->method[2]);
 			}
 		} else {

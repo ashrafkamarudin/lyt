@@ -12,10 +12,9 @@ class Test
     * @param  object, array, string $data
     * @return string
     */
-    public static function Console_Write( $data ) {
-            
+    public static function Console_Write( $data )
+    {       
         $output = '';
-
         if ( is_array( $data ) ) {
             $str = '';
             foreach($data as $key=>$item) {

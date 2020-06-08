@@ -8,16 +8,17 @@ class RegisterController extends Controller
 
 	private $errors = array();
 	
-	function __construct() {
+	function __construct() 
+	{
 		parent::__construct();
 	}
 
-	public function index($value='')
+	public function index($value='') 
 	{
 		$this->view->render('register', 'authLayout'); // loads view with indexLayout
 	}
 
-	public function register($value='')
+	public function register($value='') 
 	{
 		Test::var_dump($_REQUEST);
 
@@ -60,7 +61,5 @@ class RegisterController extends Controller
 
 		$this->redirect(URL . $redirect); // redirect
 		Test::var_dump($this->errors);
-
-
 	}
 }
